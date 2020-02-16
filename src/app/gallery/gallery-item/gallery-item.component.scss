@@ -1,8 +1,8 @@
 
 :host {
-    height: 100%; 
-  
+    height: calc(100% - 20px);
+    
     img {
-      width: 100%;
+      width: calc(100% - 10px);
     }
   }

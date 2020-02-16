@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatGridListModule }  from '@angular/material/grid-list';
+import { LayoutModule } from '@angular/cdk/layout';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -21,7 +22,8 @@ import { GalleryItemComponent } from './gallery/gallery-item/gallery-item.compon
       BrowserModule,
       AppRoutingModule,
       BrowserAnimationsModule,
-      MatGridListModule
+      MatGridListModule,
+      LayoutModule
    ],
    providers: [],
    bootstrap: [

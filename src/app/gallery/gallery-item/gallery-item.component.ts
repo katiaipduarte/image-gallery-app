@@ -11,9 +11,10 @@ export class GalleryItemComponent implements OnInit {
   @Input() image: Image;
   @Input() rowHeight: number = 1;
   @Input() gutterSize: number = 1;
-  @ViewChild('img') img: ElementRef; 
 
-  public rows: number = 0;
+  @ViewChild('img') img: ElementRef;
+
+  rows: number = 0;
 
   ngOnInit() {
     
