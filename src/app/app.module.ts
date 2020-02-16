@@ -11,6 +11,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -18,6 +19,7 @@ import { BannerComponent } from './banner/banner.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { GalleryItemComponent } from './gallery/gallery-item/gallery-item.component';
 import { GalleryItemModalComponent } from './gallery/gallery-item-modal/gallery-item-modal.component';
+import { ScrollTopComponent } from './gallery/scroll-top/scroll-top.component';
 
 import { ImagesService } from './../services/images.service';
 
@@ -28,7 +30,8 @@ import { ImagesService } from './../services/images.service';
       BannerComponent,
       GalleryComponent,
       GalleryItemComponent,
-      GalleryItemModalComponent
+      GalleryItemModalComponent,
+      ScrollTopComponent
    ],
    imports: [
       BrowserModule,
@@ -42,7 +45,8 @@ import { ImagesService } from './../services/images.service';
       MatTooltipModule,
       MatBadgeModule,
       MatChipsModule,
-      MatProgressSpinnerModule
+      MatProgressSpinnerModule,
+      InfiniteScrollModule
    ],
    entryComponents: [
       GalleryItemModalComponent

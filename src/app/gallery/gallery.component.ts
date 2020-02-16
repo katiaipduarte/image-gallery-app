@@ -17,11 +17,10 @@ export class GalleryComponent implements OnInit, OnChanges {
   cols: number = 4;
   rowHeight: number = 20;
   gutterSize: number = 1;
-  numOfImages = 8;
   images: Image[] = [];
-  isMobile: boolean = false;
   loading: boolean = true;
-
+  page: number = 1;
+  
   constructor(
     public breakpointObserver: BreakpointObserver,
     public imagesService: ImagesService,
@@ -62,9 +61,12 @@ export class GalleryComponent implements OnInit, OnChanges {
       });
   }
 
+  /**
+  * // TODO: Instead of subscribe start using Promises to make this call async
+  */
   searchImages(): void {
-    this.imagesService.getRandomImages().subscribe(imgList =>  {
-      this.images = imgList;
+    this.imagesService.getRandomImages(this.page).subscribe(imgList =>  {
+      this.images.push(...imgList);
       this.loading = false;
     })
   }
@@ -81,4 +83,10 @@ export class GalleryComponent implements OnInit, OnChanges {
     });
   }
 
+  onScroll(): void {
+    this.loading = true;
+    this.page++;
+    
+    this.searchImages();
+  }
 }

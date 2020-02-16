@@ -12,28 +12,34 @@ import { HttpParams, HttpClient } from '@angular/common/http';
 export class ImagesService {
 
   private url: string = environment.apiUrl + environment.apikey + '&q=';
-  private perPage: string = "&per_page=15";
+  private perPage: string = "&per_page=8";
 
   constructor(
     private http: HttpClient
   ) { }
 
-  private getImagesSearch(): Observable<PixabayResponse> {
+  private getImagesSearch(page: number): Observable<PixabayResponse> {
     const subj: Subject<PixabayResponse> = new Subject<PixabayResponse>();
     
-    this.http.get(`${this.url}&image_type=photo${this.perPage}`)
-      .subscribe((response: PixabayResponse) => {
-        subj.next(response);
-        subj.complete();
-      });
+    this.http.get(`${this.url}&image_type=photo${this.perPage}&page=${page}`)
+      .subscribe(
+        (response: PixabayResponse) => {
+          subj.next(response);
+          subj.complete();
+        },
+        error => {
+          Observable.throw(new Error("Error getting images from API"));
+          subj.complete();
+        }
+      );
 
     return subj;
   }
 
-  public getRandomImages(): Observable<Image[]> {
+  public getRandomImages(page: number): Observable<Image[]> {
     let imagesList: Image[] = [];
 
-    return this.getImagesSearch().pipe(
+    return this.getImagesSearch(page).pipe(
       flatMap((response: PixabayResponse) => {
         if (response.hits.length > 0) {
           imagesList = response.hits;

@@ -1,6 +1,6 @@
 export interface Image {
     id: number;
-    imageURL: string;
+    webformatURL: string;
     fullHDURL: string;
     tags: string;
     imageWidth: number;

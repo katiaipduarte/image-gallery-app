@@ -1,11 +1,15 @@
 <main>  
-  <div id="loading-spinner" *ngIf="loading else loaded">
+  <div id="loading-spinner" *ngIf="loading">
     <mat-spinner></mat-spinner>
-  </div>  
-</main>
-
-<ng-template #loaded>
-  <div id="gallery-grid">
+  </div>
+  
+  <div 
+    id="gallery-grid"
+    infiniteScroll
+    [infiniteScrollDistance]="1.5"
+    [infiniteScrollThrottle]="100"
+    [immediateCheck]="true"
+    (scrolled)="onScroll()">
     <mat-grid-list 
         [cols]="cols"
         [rowHeight]="rowHeight"
@@ -23,5 +27,7 @@
         </app-gallery-item>
       </mat-grid-tile>
     </mat-grid-list>
+
+    <app-scroll-top></app-scroll-top>
   </div>
-</ng-template>
+</main>
