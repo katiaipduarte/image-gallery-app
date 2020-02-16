@@ -1,6 +1,10 @@
-import { Image } from './../../models/image';
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
+import { MatDialog } from '@angular/material/dialog';
+
+import { GalleryItemModalComponent } from './gallery-item-modal/gallery-item-modal.component';
+
+import { Image } from './../../models/image';
 
 @Component({
   selector: 'app-gallery',
@@ -17,7 +21,8 @@ export class GalleryComponent implements OnInit, OnChanges {
   isMobile: boolean = false;
 
   constructor(
-    public breakpointObserver: BreakpointObserver 
+    public breakpointObserver: BreakpointObserver,
+    public dialog: MatDialog 
   ) {}
 
   ngOnInit() {
@@ -74,6 +79,18 @@ export class GalleryComponent implements OnInit, OnChanges {
     const image = this.generateRandomImage();
     image.alt = `#${this.images.length}`;
     this.images.push(image);
+  }
+
+  openGalleryItemModal(image: Image) {
+    const dialogRef = this.dialog.open(GalleryItemModalComponent, {
+      width: '85%',
+      height: '85%',
+      data: image
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
 }

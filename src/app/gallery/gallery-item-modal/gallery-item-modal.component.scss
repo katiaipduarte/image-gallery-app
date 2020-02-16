@@ -1,0 +1,82 @@
+::ng-deep .mat-dialog-container {
+    overflow-y: hidden !important;
+    background-color:  rgba(49, 49, 49, 0.98);
+}
+
+::ng-deep .cdk-overlay-container {
+    background-color: rgba(0,0,0,0.8);
+}
+
+::ng-deep .mat-badge-content {
+    background-color: #FF8C00;
+    right: -22px !important;
+}
+
+:host {
+    cursor: default;
+    
+    .mat-dialog-title {
+        height: 6vh;
+
+        #photographer-id {
+            float: left;
+            color: #fefefe;
+            margin: 0 15px;
+
+            p {
+                font-size: 11px;
+                margin: 0;
+            }
+        }
+    
+        button {
+            transform: rotate(45deg);
+            height: 0;
+            float: right;
+            mat-icon {
+                font-size: 5.5vh;
+                color: #f6f6f6;
+                &:hover {
+                    color: #FF8C00;
+                }
+            }
+        }
+    }
+
+    #dialog-container {
+        overflow: hidden;
+        max-height: 100%;
+
+        mat-chip-list {
+            float: left;
+            width: 20%;
+            position: absolute;
+            margin: 25px 0;
+        }
+
+        #image-container {
+            display: block;
+            height: 60vh;
+
+            img {
+                height: inherit;
+                display: block;
+                margin: auto;
+            }
+        }
+
+        #icons {
+            display: block;
+            height: 5vh;
+            margin-top: 40px;
+            text-align: center;
+
+            mat-icon {
+                margin: 0 30px;
+                font-size: 3.5vh;
+                color: #f6f6f6;
+            }            
+        }
+    }
+
+}

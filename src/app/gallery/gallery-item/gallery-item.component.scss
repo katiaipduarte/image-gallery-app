@@ -1,8 +1,8 @@
 
 :host {
-    height: calc(100% - 20px);
-    
-    img {
-      width: calc(100% - 10px);
-    }
+  height: calc(100% - 20px);
+  cursor: pointer;
+  img {
+    width: calc(100% - 10px);
   }
+}

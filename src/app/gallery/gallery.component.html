@@ -7,10 +7,13 @@
       <mat-grid-tile
         *ngFor="let imageItem of images"
         [rowspan]="item.rows">
-        <app-gallery-item  #item 
+        <app-gallery-item  
+                        #item 
                         [image]="imageItem" 
                         [rowHeight]="rowHeight" 
-                        [gutterSize]="gutterSize">
+                        [gutterSize]="gutterSize"
+                        (click)="openGalleryItemModal(imageItem)"
+                        >
         </app-gallery-item>
       </mat-grid-tile>
     </mat-grid-list>
