@@ -7,4 +7,45 @@
     top: 150px;
     left: 0;
     right: 0;
+    cursor: default;
+
+    mat-icon {
+        color: #313131;
+    }
+
+    .button {
+        cursor: pointer;
+        font-size: 5vh;
+        padding: 15px;
+
+        &:hover {
+          color: #FF8C00;
+        }
+        
+        &:last-child {
+            position: absolute;
+            right: 20px;
+            top: 0;
+        }
+    }
+
+    #title {
+        width: 50%;
+        margin: -25px auto;
+        text-align: center;
+
+        mat-icon {
+            font-size: 5.5vh;
+            margin-left: -30px;
+        }
+
+        button {
+            background-color: #313131;
+            color: #f6f6f6;
+
+            &:hover {
+                background-color: #FF8C00;
+            }
+        }
+    }
 }
