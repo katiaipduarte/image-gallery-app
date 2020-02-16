@@ -2,6 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { Image } from './../../../models/image';
+import { GlobalConst } from 'src/helpers/constants';
 
 
 @Component({
@@ -11,11 +12,27 @@ import { Image } from './../../../models/image';
 })
 export class GalleryItemModalComponent {
 
+  tagsList: string[] = [];
+  imageSize: string = GlobalConst.emptyString;
+
   constructor(
     public dialogRef: MatDialogRef<GalleryItemModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Image
-  ) {
-    console.log(data)
+  ) {}
+
+  ngOnInit() {
+    this.createTagsList();
+    this.createImageSize();
+  }
+
+  private createTagsList(): void {
+    if (this.data.tags !== GlobalConst.emptyString) {
+      this.tagsList = this.data.tags.split(",");
+    }
+  }
+
+  private createImageSize(): void {
+    this.imageSize = `${this.data.imageWidth}x${this.data.imageHeight}`;
   }
 
   onNoClick(): void {

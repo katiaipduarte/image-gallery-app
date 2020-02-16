@@ -1,5 +1,17 @@
 export interface Image {
-    src: string,
-    alt?: string
+    id: number;
+    imageURL: string;
+    fullHDURL: string;
+    tags: string;
+    imageWidth: number;
+    imageHeight: number;
+    views: number;
+    downloads: number;
+    favorites: number;
+    likes: number;
+    comments: number;
+    user_id: number;
+    user: string;
+    userImageURL: string;
 }
   

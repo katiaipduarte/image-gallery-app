@@ -2,9 +2,23 @@ main {
     background-color: #f6f6f6;
     display: block;
     padding: 0 50px;
-    min-height: 100%;
+    min-height: 100%;    
+
+    #loading-spinner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -50px;
+        margin-left: -50px;
+        width: 100px;
+        height: 100px;
+    }
     
     #gallery-grid {
         padding-top: 200px;
     }
+}
+
+::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: #FF8C00;
 }

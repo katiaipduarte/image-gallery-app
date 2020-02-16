@@ -1,24 +1,37 @@
 
 <div mat-dialog-title>
   <div id="photographer-id">
-    <p>Photo by</p>
-    <h3>Mairo</h3>
+    <img id="photographer-img" src="{{data.userImageURL}}">
+    <div id="photographer-info">
+      <p>Photo by</p>
+      <h3>{{data.user}}</h3>
+    </div>
   </div>
   <button mat-button mat-dialog-close>
     <mat-icon aria-hidden="false" aria-label="close">control_point</mat-icon>
   </button>
 </div
 >
-<div id="dialog-container" mat-dialog-content>
-  <mat-chip-list aria-label="Image tags">
-    <mat-chip>One fish</mat-chip>
+<div id="dialog-container" mat-dialog-content>  
+  <div id="image-size-information">
+    <mat-icon 
+      aria-hidden="false" 
+      aria-label="size" 
+      matTooltipPosition="before"
+      matTooltip="Photography size">
+      photo_size_select_large
+    </mat-icon>
+    <span>{{imageSize}}</span>
+  </div>  
+
+  <mat-chip-list aria-label="Image tags" >
+    <mat-chip *ngFor="let tag of tagsList">{{tag}}</mat-chip>
   </mat-chip-list>
 
   <div id="image-container">
     <img 
-      [src]="data?.src" 
-      [alt]="data?.alt"
-    />
+      [src]="data.fullHDURL" 
+    />      
   </div>  
 
   <div id="icons">
@@ -26,7 +39,7 @@
       aria-hidden="false" 
       aria-label="likes" 
       matTooltip="Likes" 
-      matBadge="22" 
+      matBadge="{{data.likes}}" 
       matBadgePosition="above after">
         favorite
     </mat-icon>
@@ -34,7 +47,7 @@
       aria-hidden="false" 
       aria-label="favorite"
       matTooltip="Favorite" 
-      matBadge="22" 
+      matBadge="{{data.favorites}}" 
       matBadgePosition="above after">
       star
     </mat-icon>
@@ -42,7 +55,7 @@
       aria-hidden="false" 
       aria-label="views" 
       matTooltip="Views" 
-      matBadge="22" 
+      matBadge="{{data.views}}" 
       matBadgePosition="above after">
       remove_red_eye
     </mat-icon>
@@ -50,7 +63,7 @@
       aria-hidden="false" 
       aria-label="downloads" 
       matTooltip="Downloads" 
-      matBadge="22" 
+      matBadge="{{data.downloads}}" 
       matBadgePosition="above after">
       cloud_download
     </mat-icon>
@@ -58,7 +71,7 @@
       aria-hidden="false" 
       aria-label="size" 
       matTooltip="Photography size" 
-      matBadge="22"
+      matBadge="{{imageSize}}"
       matBadgePosition="above after">
       photo_size_select_large
     </mat-icon>

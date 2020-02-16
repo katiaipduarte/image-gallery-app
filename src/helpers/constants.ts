@@ -1,3 +1,3 @@
-export const Constants = Object.freeze({
-
+export const GlobalConst = Object.freeze({
+    emptyString: ""
 });

@@ -9,7 +9,12 @@
 
 ::ng-deep .mat-badge-content {
     background-color: #FF8C00;
-    right: -22px !important;
+    font-size: 10px;
+    right: -30px !important;
+    top: -18px !important;
+    width: 30px !important;
+    height: 30px !important;
+    line-height: 30px!important;
 }
 
 :host {
@@ -23,9 +28,23 @@
             color: #fefefe;
             margin: 0 15px;
 
-            p {
-                font-size: 11px;
-                margin: 0;
+            #photographer-img {
+                float: left;
+                width: 48px;
+                height: 48px;
+                border-radius: 48px;
+                margin: 7px 12px 0 0;
+            }
+
+            #photographer-info {
+                display: inline-block;
+                p {
+                    font-size: 11px;
+                    margin: 0;
+                }
+                h3 {
+                    margin: 0;
+                }
             }
         }
     
@@ -49,6 +68,20 @@
         margin: 0;
         padding: 0;
         width: 100%;
+
+        #image-size-information {
+            mat-icon {
+                margin: 0px 10px 0;
+                font-size: 2.5vh;
+                color: #FF8C00;
+            }
+
+            span {
+                display: inline-block;
+                vertical-align: super;
+                color: #f6f6f6;
+            }
+        }
 
         mat-chip-list {
             float: left;

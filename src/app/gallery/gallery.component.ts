@@ -1,3 +1,4 @@
+import { ImagesService } from './../../services/images.service';
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { MatDialog } from '@angular/material/dialog';
@@ -19,15 +20,17 @@ export class GalleryComponent implements OnInit, OnChanges {
   numOfImages = 8;
   images: Image[] = [];
   isMobile: boolean = false;
+  loading: boolean = true;
 
   constructor(
     public breakpointObserver: BreakpointObserver,
+    public imagesService: ImagesService,
     public dialog: MatDialog 
   ) {}
 
   ngOnInit() {
     this.createResponsiveLayout();
-    this.generateImagesList();
+    this.searchImages();
   }
 
   ngOnChanges() {
@@ -59,26 +62,11 @@ export class GalleryComponent implements OnInit, OnChanges {
       });
   }
 
-  private generateRandomImage(): Image {
-    const width = 600;
-    const height = (Math.random() * (1000 - 400) + 400).toFixed();
-    return {src: `https://picsum.photos/${width}/${height}/?random`};
-  }
-
-  private generateImagesList(): void {
-    const images: Image[] = [];
-    for (let i = 0; i < this.numOfImages; i++){
-      const image = this.generateRandomImage();
-      image.alt = `#${i}`;
-      images.push(image);
-    }
-    this.images = images;
-  }
-
-  addImage() {
-    const image = this.generateRandomImage();
-    image.alt = `#${this.images.length}`;
-    this.images.push(image);
+  searchImages(): void {
+    this.imagesService.getRandomImages().subscribe(imgList =>  {
+      this.images = imgList;
+      this.loading = false;
+    })
   }
 
   openGalleryItemModal(image: Image) {

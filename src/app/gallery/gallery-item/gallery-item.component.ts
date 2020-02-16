@@ -6,7 +6,7 @@ import { Component, OnInit, Input, ViewChild, ElementRef, HostListener } from '@
   templateUrl: './gallery-item.component.html',
   styleUrls: ['./gallery-item.component.scss']
 })
-export class GalleryItemComponent implements OnInit {
+export class GalleryItemComponent {
 
   @Input() image: Image;
   @Input() rowHeight: number = 1;
@@ -15,10 +15,6 @@ export class GalleryItemComponent implements OnInit {
   @ViewChild('img') img: ElementRef;
 
   rows: number = 0;
-
-  ngOnInit() {
-    
-  }
 
   @HostListener('window:resize')
   calculateRows() {
