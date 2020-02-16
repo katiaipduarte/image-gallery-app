@@ -11,7 +11,9 @@ Read the [Pixabay API Docs](https://pixabay.com/api/docs/) for more information 
 Make a new `.env` file and do the following
 
 ```
- apikey = your_api_key
+  production: false,
+  apikey: '6473511-0417f2cad683f1bee54cafe15',
+  apiUrl: 'https://pixabay.com/api/?key='
 ```
 
 
