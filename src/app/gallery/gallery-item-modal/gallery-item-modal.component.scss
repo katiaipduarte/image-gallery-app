@@ -46,17 +46,20 @@
     #dialog-container {
         overflow: hidden;
         max-height: 100%;
+        margin: 0;
+        padding: 0;
+        width: 100%;
 
         mat-chip-list {
             float: left;
             width: 20%;
             position: absolute;
-            margin: 25px 0;
+            margin: 1vh 0;
         }
 
         #image-container {
             display: block;
-            height: 60vh;
+            height: 58vh;
 
             img {
                 height: inherit;
@@ -67,9 +70,9 @@
 
         #icons {
             display: block;
-            height: 5vh;
-            margin-top: 40px;
+            height: 10vh;
             text-align: center;
+            margin-top: 4vh;
 
             mat-icon {
                 margin: 0 30px;
