@@ -8,14 +8,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Read the [Pixabay API Docs](https://pixabay.com/api/docs/) for more information and to obtain an API key.
 
 ## API Usage
-Make a new `.env` file and do the following
-
-```
-  production: false,
-  apikey: '6473511-0417f2cad683f1bee54cafe15',
-  apiUrl: 'https://pixabay.com/api/?key='
-```
-
+Find the `.env` file at 'src/environment/environment.ts' and change the apikey to use your key.
 
 ## Development server
 
