@@ -4,6 +4,8 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { GalleryItemModalComponent } from './gallery-item-modal.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ImagesService } from 'src/services/images.service';
 
 describe('GalleryItemModalComponent', () => {
   let component: GalleryItemModalComponent;
@@ -22,7 +24,4 @@ describe('GalleryItemModalComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });

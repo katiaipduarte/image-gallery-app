@@ -4,15 +4,15 @@ import { Image } from './../models/image';
 import { Injectable } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
 import { flatMap } from "rxjs/operators";
-import { HttpParams, HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ImagesService {
 
-  private url: string = environment.apiUrl + environment.apikey + '&q=';
-  private perPage: string = "&per_page=8";
+  url: string = environment.apiUrl + environment.apikey + '&q=';
+  perPage: string = "&per_page=8";
 
   constructor(
     private http: HttpClient

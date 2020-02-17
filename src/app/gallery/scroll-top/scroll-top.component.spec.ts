@@ -22,7 +22,10 @@ describe('ScrollTopComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  // it('shouldnot show button scroll to top', () => {
+  //   const button = fixture.debugElement.nativeElement.querySelector('.scroll-to-top');
+  //   console.log(button.nativeElement.style)
+  //   fixture.detectChanges();
+  //   expect(button.nativeElement.style.opacity).toBe(0);
+  // });
 });
